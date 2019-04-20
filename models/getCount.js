@@ -11,8 +11,6 @@ const getCount = n => new Promise((resolve, reject) => {
       // Split words from spaces and storing into an array
       const wordsArray = getWordsArray(data);
 
-      // console.log('wordsArray : ', wordsArray);
-
       // Create a words count mapping of eact and every words in the array and storing it in an object
       const wordsCount = wordsArray.reduce((accum, d) => {
         if (accum[d]) {
@@ -22,8 +20,6 @@ const getCount = n => new Promise((resolve, reject) => {
         }
         return accum;
       }, {});
-
-      // console.log('wordsCount : ', wordsCount);
 
       let wordCountMapping = Object.keys(wordsCount).map(word => ({
         word,
