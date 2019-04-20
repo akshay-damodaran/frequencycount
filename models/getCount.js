@@ -26,8 +26,6 @@ const getCount = n => new Promise((resolve, reject) => {
         count: wordsCount[word],
       }));
 
-      console.log('wordCountMapping : ', wordCountMapping);
-
       wordCountMapping = wordCountMapping.sort((a, b) => b.count - a.count);
 
       resolve(wordCountMapping.splice(0, n));
