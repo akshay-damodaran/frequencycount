@@ -1,0 +1,24 @@
+{
+  "name": "fcserver",
+  "version": "1.0.0",
+  "description": "A web application to get the n most frequent words in the given file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshay-damodaran/frequencycount.git"
+  },
+  "author": "Akshay Damodaran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshay-damodaran/frequencycount/issues"
+  },
+  "homepage": "https://github.com/akshay-damodaran/frequencycount#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}
