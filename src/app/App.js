@@ -12,9 +12,24 @@ class App extends React.Component {
   }
 
   handleChange(n) {
-    this.setState({
-      n,
-    });
+    if(!isNaN(n)) {
+      this.setState({
+        n,
+      });
+    }
+  }
+
+  handleKeyDown(e) {
+    const { n } = this.state;
+    if (e.keyCode === 38)
+      this.setState({
+        n: n + 1,
+      });
+    if (e.keyCode === 40 && n > 0) {
+      this.setState({
+        n: n - 1,
+      });
+    }
   }
 
   async handleClick() {
@@ -26,6 +41,7 @@ class App extends React.Component {
       this.setState({
         data: [],
       })
+      alert(response);
     } else {
       this.setState({
         data: response.data.result,
@@ -60,9 +76,14 @@ class App extends React.Component {
     const { n, data } = this.state;
     return (
       <div>
-        <p>Frequency Count</p>
+        <h1>Frequency Count</h1>
         <label htmlFor="n-input">Enter value of n : </label>
-        <input type="number" value={n} onChange={e => this.handleChange(Number(e.target.value))} />
+        <input
+          type="text"
+          value={n}
+          onChange={e => this.handleChange(Number(e.target.value))}
+          onKeyDown={e => this.handleKeyDown(e)}
+        />
         <button type="button" onClick={() => this.handleClick()}>Submit</button>
         {data.length > 0 && this.renderTable(data)}
       </div>
