@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -12,20 +12,25 @@ const config = {
     publicPath: '/app/',
   },
   module: {
-    rules: [
-      {
-        test: /\.js?/,
-        include: SRC_DIR,
-        enforce: 'pre',
-        use: {
-          loader: 'babel-loader',
-        }
+    rules: [{
+      test: /\.js?/,
+      include: SRC_DIR,
+      enforce: 'pre',
+      use: {
+        loader: 'babel-loader',
       },
-      {
-        test: /\.css?/,
-        include: SRC_DIR,
-        use: ['style-loader', 'css-loader'],
-      },
+    },
+    {
+      test: /\.css?/,
+      include: SRC_DIR,
+      use: ['style-loader', 'css-loader'],
+    },
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        'file-loader',
+      ],
+    },
     ],
   },
   plugins: [
